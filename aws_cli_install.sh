@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu #x
 
-if ! $(grep -Eicq 'debian|buntu|mint' /etc/*release); then
+if ! grep -Eicq 'debian|buntu|mint' /etc/*release; then
    echo "This script is intended for debian based systems only, sorry."
    exit 1
 fi
@@ -11,3 +11,7 @@ unzip awscliv2.zip
 sudo ./aws/install
 rm awscliv2.zip
 rm -rf aws
+
+echo "Done, navigate to"
+echo "https://console.aws.amazon.com/iam/home?#security_credential"
+echo "then run aws configure"

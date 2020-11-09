@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu #x
 
-if ! $(grep -Eicq 'debian|buntu|mint' /etc/*release); then
+if ! grep -Eicq 'debian|buntu|mint' /etc/*release; then
    echo "This script is intended for debian based systems only, sorry."
    exit 1
 fi

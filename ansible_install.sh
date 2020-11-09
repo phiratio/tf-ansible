@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu #x
 
-if ! $(grep -Eicq 'buntu' /etc/*release); then
+if ! grep -Eicq 'buntu' /etc/*release; then
    echo "This script is intended for ubuntu based systems only, sorry."
    exit 1
 fi
