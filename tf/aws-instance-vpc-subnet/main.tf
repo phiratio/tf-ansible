@@ -14,7 +14,7 @@ provider "aws" {
 
 resource "aws_instance" "example" {
   ami = "ami-08d70e59c07c61a3a"
-  instance_type = "t2.micro"
+  instance_type = var.instance_type
 
   tags = {
     Name = "opa"
@@ -23,7 +23,7 @@ resource "aws_instance" "example" {
 }
 
 resource "aws_vpc" "main" {
-  cidr_block       = "10.5.0.0/16"
+  cidr_block = "10.5.0.0/16"
   instance_tenancy = "default"
 
   tags = {
@@ -32,10 +32,8 @@ resource "aws_vpc" "main" {
 }
 
 resource "aws_subnet" "main" {
-  vpc_id     = aws_vpc.main.id
+  vpc_id = aws_vpc.main.id
   cidr_block = "10.5.1.0/16"
 
-  tags = {
-    Name = "Main"
-  }
+  tags = var.instance_tags
 }
