@@ -1,6 +1,6 @@
 // variable declarations in file with this name gets loaded automatically
 variable "instance_type" {
-  type = "string"
+  type = string
 }
 
 variable "instance_tags" {
