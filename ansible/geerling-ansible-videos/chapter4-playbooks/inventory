@@ -1,0 +1,12 @@
+# Application servers
+[app]
+#192.168.60.4
+127.0.0.1
+
+# Variables for all the servers
+[app:vars]
+# tells ansible what user to use
+ansible_ssh_user=vagrant
+ansible_ssh_port=2222
+# default key that comes with vagrant
+ansible_ssh_private_key_file=~/.vagrant.d/insecure_private_key
