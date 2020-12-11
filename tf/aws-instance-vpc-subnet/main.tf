@@ -31,6 +31,22 @@ resource "aws_vpc" "main" {
   }
 }
 
+output "foor" {
+  value = aws_vpc.main.id
+}
+
+// reference to resource which is not defined here
+data "aws_vpc" "opalq" {
+  filter {
+    name = "tag:Name"
+    values = ["top vpc"]
+  }
+}
+
+output "vpcoutputa" {
+  value = data.aws_vpc.opalq.id
+}
+
 resource "aws_subnet" "main" {
   vpc_id = aws_vpc.main.id
   cidr_block = "10.5.1.0/16"
